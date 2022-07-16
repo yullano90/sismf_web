@@ -1,22 +1,5 @@
 ### <!-- Sistema de Gestão de Materiais Ferroviários -  --> SISMF
 
-### Conceitos Básicos
-Controle de fluxo de entrada e saída de produtos em uma empresa.
-- Conjunto de produtos armazenados em um local.
-- Dinheiro armazenado na empresa;
-- 
-**Pra que serve?**
-- Bater as contas no final do mês;
-- Calcular Lucros;
-- Identificar perdas;
-- Contribuir para o governo(ICMS);
----
-Tipos de Estoque:
-- **Matéria-prima** (celulose, minério de ferro, petróleo, etc).
-- **Produtos não acabados** (peças, motores, chips, componentes eletrônicos, etc).
-- **Produtos finalizados**  (carros, notebooks, etc).
-- **Consumíveis** - (combustíveis, materiais de escritório, etc).
-
 Grupos de Funcionalidades:
 1) **Infraestrutura:**
 	Tratamento de Exceção;
@@ -125,7 +108,8 @@ L --> M(País)
 |Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
 |Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
 
-### Final Drafts:
+
+### Drafts:
 
 Tudo começa na compra, todo produto é comprado por um fornecedor.
 E aí há uma entrada, uma saída e a venda pelo PDV.
@@ -141,19 +125,33 @@ Cuidados:
 4. Controlar a quantidade mínima (para não deixar faltar);
 
 
-
-
 BundleConfig - minificação de recursos;
 FilterConfig - Filtros Aspnet;
 RouteConfig - Rota padrão;
 
 Controller - Default é o home e é o ponto de entrada de cada uma das rotas;
 
-
-Todas as páginas por padrão herdam se Shared;
-
+Todas as páginas por padrão herdam de Shared;
 
 
-Tools:
+
+<!-- Tools:
 #mermaid
 #stackedit
+
+### Conceitos Básicos
+Controle de fluxo de entrada e saída de produtos em uma empresa.
+- Conjunto de produtos armazenados em um local.
+- Dinheiro armazenado na empresa;
+- 
+**Pra que serve?**
+- Bater as contas no final do mês;
+- Calcular Lucros;
+- Identificar perdas;
+- Contribuir para o governo(ICMS);
+---
+Tipos de Estoque:
+- **Matéria-prima** (celulose, minério de ferro, petróleo, etc).
+- **Produtos não acabados** (peças, motores, chips, componentes eletrônicos, etc).
+- **Produtos finalizados**  (carros, notebooks, etc).
+- **Consumíveis** - (combustíveis, materiais de escritório, etc). -->
