@@ -54,3 +54,5 @@ C:\Users\81030093\Desktop\IFMA\sismf_web\sismf_web_app\obj\Debug\sismf_web_app.c
 C:\Users\81030093\Desktop\IFMA\sismf_web\sismf_web_app\obj\Debug\sismf_web_app.csproj.CopyComplete
 C:\Users\81030093\Desktop\IFMA\sismf_web\sismf_web_app\obj\Debug\sismf_web_app.dll
 C:\Users\81030093\Desktop\IFMA\sismf_web\sismf_web_app\obj\Debug\sismf_web_app.pdb
+C:\Users\81030093\Desktop\IFMA\sismf_web\obj\Debug\sismf_web_app.dll
+C:\Users\81030093\Desktop\IFMA\sismf_web\obj\Debug\sismf_web_app.pdb
