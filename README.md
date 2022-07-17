@@ -2,39 +2,41 @@
 
 Grupos de Funcionalidades:
 1) **Infraestrutura:**
-	Tratamento de Exceção;
-	Gravação de Logs em arquivos;	
-	Autenticação;
-	Autorização;
-	Auditoria;
+- Tratamento de Exceção;
+- Gravação de Logs em arquivos;	
+- Autenticação;
+- Autorização;
+- Auditoria;
 
 2) **Cadastros:**
-	Grupos (tipos) de produtos;
-	Marcas de produtos;
-	Locais de Armazenamento;
-	Unidades de Medida;
-	Países, Estados, Cidades;
-	Fornecedores;
-	Produtos;
-	Perfis de Usuários;
-	Usuários
+- Grupos (tipos) de produtos;
+- Marcas de produtos;
+- Locais de Armazenamento;
+- Unidades de Medida;
+- Países, Estados, Cidades;
+- Fornecedores;
+- Produtos;
+- Perfis de Usuários;
+- Usuários
 
 3) **Operações:**
-	Entrada de Produtos;
-	Saída de Produtos;
-	Lançamentos de Perdas de Produtos;
-	Inventário de Estoque;
+- Entrada de Produtos;
+- Saída de Produtos;
+- Lançamentos de Perdas de Produtos;
+- Inventário de Estoque;
 
 4) **Relatórios:**
-	Posição de estoque;
-	Ressuprimento;
+-Posição de estoque;
+- Ressuprimento;
 
 5) **Gráficos:**
-	Perdas por mês;
-	Entradas vs Saídas por mês;
+- Perdas por mês;
+- Entradas vs Saídas por mês;
+
+<!-- ### Apresentação da Aplicação -->
 
 
-### Apresentação da Aplicação
+### Fluxo de Execução Básico:
 
 Usuário está ligado a todas as entidades, que em breve serão tabelas do nosso banco de dados:
 
@@ -57,11 +59,7 @@ K --> L(Estado)
 L --> M(País)
 ```
 
-
-### Fluxo de Execução Típico
-
-
-### Funcionalidades da App
+<!-- ### Funcionalidades da App
 
 
 ### Modelo de Dados
@@ -132,7 +130,7 @@ RouteConfig - Rota padrão;
 Controller - Default é o home e é o ponto de entrada de cada uma das rotas;
 
 Todas as páginas por padrão herdam de Shared;
-
+ -->
 
 
 <!-- Tools:
