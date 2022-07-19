@@ -26,7 +26,7 @@ Grupos de Funcionalidades:
 - Inventário de Estoque;
 
 4) **Relatórios:**
--Posição de estoque;
+- Posição de estoque;
 - Ressuprimento;
 
 5) **Gráficos:**
@@ -38,7 +38,7 @@ Grupos de Funcionalidades:
 
 ### Fluxo de Execução Básico:
 
-Usuário está ligado a todas as entidades, que em breve serão tabelas do nosso banco de dados:
+Usuário está ligado a todas as entidades, que acabam por se tornar tabelas do banco de dados e referência semântica para o padrão de projeto MVC:
 
 ```mermaid
 flowchart LR
@@ -57,6 +57,71 @@ A --> J(Entrada)
 D --> K(Cidade)
 K --> L(Estado)
 L --> M(País)
+```
+
+Com as entidades definidas já é possível criar a guia com as listas suspensas (Dropdowns) do sistema, usando a Técnica Top-Down:
+
+```cs
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*Guia do dropdown*@
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            @*Propriedades que mostram o dropdown*@
+                            Cadastros
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Grupo de Produtos", "GrupoProduto", "Cadastro")</li>
+                            <li>@Html.ActionLink("Marcas de Produtos", "MarcaProduto", "Cadastro")</li>
+                            <li>@Html.ActionLink("Locais de Armazenamento", "LocalProduto", "Cadastro")</li>
+                            <li>@Html.ActionLink("Unidades de Medida", "UnidadeMedida", "Cadastro")</li>
+                            <li>@Html.ActionLink("Produtos", "Produto", "Cadastro")</li>
+                            <li>@Html.ActionLink("Países", "Pais", "Cadastro")</li>
+                            <li>@Html.ActionLink("Estados", "Estado", "Cadastro")</li>
+                            <li>@Html.ActionLink("Cidades", "Cidade", "Cadastro")</li>
+                            <li>@Html.ActionLink("Perfis de Usuários", "UsarioPerfil", "Cadastro")</li>
+                            <li>@Html.ActionLink("Usuários", "Usuario", "Cadastro")</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Operações
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Entrada de Produtos", "EntradaProduto", "Operacao")</li>
+                            <li>@Html.ActionLink("Saída de Produtos", "SaidaProduto", "Operacao")</li>
+                            <li>@Html.ActionLink("Lançamento de Perdas de Produto", "LancPerdaProduto", "Operacao")</li>
+                            <li>@Html.ActionLink("Inventário de Estoque", "InvetarioEstoque", "Operacao")</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Relatórios
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Posição do Estoque", "PosicaoEstoque", "Relatorio")</li>
+                            <li>@Html.ActionLink("Ressuprimento", "Ressuprimento", "Relatorio")</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Gráficos
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Perdas por mês", "PerdaMes", "Grafico")</li>
+                            <li>@Html.ActionLink("Entradas vs Saídas por mês", "EntradaSaidaMes", "Grafico")</li>
+                        </ul>
+                    </li>
+                </ul>
+
+
 ```
 
 <!-- ### Funcionalidades da App
@@ -105,31 +170,6 @@ L --> M(País)
 |Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
 |Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
 |Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
-
-
-### Drafts:
-
-Tudo começa na compra, todo produto é comprado por um fornecedor.
-E aí há uma entrada, uma saída e a venda pelo PDV.
-
-Em algum momento as perdas precisam ser registradas.
-Inventário também tem que ser feito de tempos em tempos.
-
-Cuidados:
-
-1. Nunca pode faltar produto (relatórios fazem a diferença);
-2. Nunca pode sobrar produtos em exagero;
-3. Fazer inventários periodicamente;
-4. Controlar a quantidade mínima (para não deixar faltar);
-
-
-BundleConfig - minificação de recursos;
-FilterConfig - Filtros Aspnet;
-RouteConfig - Rota padrão;
-
-Controller - Default é o home e é o ponto de entrada de cada uma das rotas;
-
-Todas as páginas por padrão herdam de Shared;
  -->
 
 
@@ -153,3 +193,37 @@ Tipos de Estoque:
 - **Produtos não acabados** (peças, motores, chips, componentes eletrônicos, etc).
 - **Produtos finalizados**  (carros, notebooks, etc).
 - **Consumíveis** - (combustíveis, materiais de escritório, etc). -->
+
+
+
+### Drafts:
+
+Tudo começa na compra, todo produto é comprado por um fornecedor.
+E aí há uma entrada, uma saída e a venda pelo PDV.
+
+Em algum momento as perdas precisam ser registradas.
+Inventário também tem que ser feito de tempos em tempos.
+
+Cuidados:
+
+1. Nunca pode faltar produto (relatórios fazem a diferença);
+2. Nunca pode sobrar produtos em exagero;
+3. Fazer inventários periodicamente;
+4. Controlar a quantidade mínima (para não deixar faltar);
+
+
+BundleConfig - minificação de recursos (javascript, css e etc);
+FilterConfig - Filtros Aspnet;
+RouteConfig - Rota padrão;
+
+Controller - Default é o home e é o ponto de entrada de cada uma das rotas;
+
+Todas as páginas por padrão herdam de Shared;
+
+Template ASP net MVC.
+
+
+Após a definição do Dropdown.
+Criamos uma Controller 
+
+
