@@ -192,7 +192,7 @@ Tipos de Estoque:
 - **Matéria-prima** (celulose, minério de ferro, petróleo, etc).
 - **Produtos não acabados** (peças, motores, chips, componentes eletrônicos, etc).
 - **Produtos finalizados**  (carros, notebooks, etc).
-- **Consumíveis** - (combustíveis, materiais de escritório, etc). -->
+- **Consumíveis** - (combustíveis, materiais de escritório, etc). 
 
 
 
