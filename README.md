@@ -59,7 +59,9 @@ K --> L(Estado)
 L --> M(País)
 ```
 
-Com as entidades definidas já é possível criar a guia com as listas suspensas (Dropdowns) do sistema, usando a Técnica Top-Down:
+### Funcionalidades da App
+
+Com as entidades definidas já é possível criar as guias de menu com as listas suspensas (Dropdowns) de funcionalidades, usando a Técnica Top-Down para abstrair os respectivos Controllers e métodos. Vide abaixo trecho de criação das listas de menu:
 
 ```cs
             <div class="navbar-collapse collapse">
@@ -124,8 +126,7 @@ Com as entidades definidas já é possível criar a guia com as listas suspensas
 
 ```
 
-<!-- ### Funcionalidades da App
-
+<!-- 
 
 ### Modelo de Dados
 

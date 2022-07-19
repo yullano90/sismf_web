@@ -8,7 +8,6 @@ namespace sismf_web.Controllers
 {
     public class CadastroController : Controller
     {
-        // GET: Cadastro
         public ActionResult GrupoProduto()
         {
             return View();
