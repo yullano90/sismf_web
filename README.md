@@ -1,4 +1,6 @@
-### <!-- Sistema de Gestão de Materiais Ferroviários -  --> SISMF
+Pré-projeto para a disciplina de Análise e Projeto de Sistemas.
+
+### <!-- Sistema de Gerenciamento de Materiais Ferroviários -  --> SISMF
 
 **GRUPOS DE FUNCIONALIDADES:**
 
@@ -67,6 +69,9 @@ L --> M(País)
 Com as entidades definidas já é possível criar as guias de menu com as listas suspensas (Dropdowns) de funcionalidades, aplicando a abordagem Top Down para abstrair os respectivos Controllers e Métodos. Vide abaixo trecho de código das listas de menu em   `sismf_web\Views\Shared\_Layout.cshtml`:
 
 ```cs
+<!DOCTYPE html>
+<html>
+...
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @*Guia do dropdown*@
@@ -82,9 +87,11 @@ Com as entidades definidas já é possível criar as guias de menu com as listas
                             <li>@Html.ActionLink("Locais de Armazenamento", "LocalProduto", "Cadastro")</li>
                             <li>@Html.ActionLink("Unidades de Medida", "UnidadeMedida", "Cadastro")</li>
                             <li>@Html.ActionLink("Produtos", "Produto", "Cadastro")</li>
+                            <li class="nav-divider"></li>
                             <li>@Html.ActionLink("Países", "Pais", "Cadastro")</li>
                             <li>@Html.ActionLink("Estados", "Estado", "Cadastro")</li>
                             <li>@Html.ActionLink("Cidades", "Cidade", "Cadastro")</li>
+                            <li class="nav-divider"></li>
                             <li>@Html.ActionLink("Perfis de Usuários", "UsarioPerfil", "Cadastro")</li>
                             <li>@Html.ActionLink("Usuários", "Usuario", "Cadastro")</li>
                         </ul>
@@ -127,6 +134,23 @@ Com as entidades definidas já é possível criar as guias de menu com as listas
                 </ul>
 
 
+                @*Guias simples na mesma lâmina (sem dropdown): <li>@Html.ActionLink("Text", "Action", "Controller")</li> *@
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Sobre o SISMF", "About", "Home")</li>
+                    <li>@Html.ActionLink("Desenvolvedor", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Desenvolvido por Yullano Santos</p>
+        </footer>
+...
+</html>
+
 ```
 
 **Autenticação**:
@@ -140,38 +164,107 @@ Uma view Login precisa ser criada para coletar o input de credenciais do usuári
     </div>
     <div class="row">
         <section id="loginform">
-            @*Controller "Conta" chama a Action "Login", passa como parâmetro a URL,o método HTTP (POST)*@
-            @*+ Estilização do formulário de envio *@
             @using (Html.BeginForm(
-                "Login",
-                "Conta",
-                new { ReturnUrl = ViewBag.ReturnUrl },
-                FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                "Login","Conta", new { ReturnUrl = ViewBag.ReturnUrl }, 
+                FormMethod.Post, new { @class = "form-horizontal", role = "form" }
+                ))
             {
                 <div class="form-group">
                     @Html.LabelFor(m => m.Usuario, new { @class = "form-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Usuario, new { class="form-control" })
+                        @Html.TextBoxFor(m => m.Usuario, new { @class = "form-control" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-10 col-md-offset-2">
-                        @Html.CheckBoxFor( m => m.LembrarMe)
-                        @Html.LabelFor( m => m.LembrarMe)
+                        @Html.CheckBoxFor(m => m.LembrarMe)
+                        @Html.LabelFor(m => m.LembrarMe)
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Senha, new { @class = "form-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Senha, new { class= "form-control" })
+                    <div class="col-md-10 col-md-offset-2">
+                        <input type="submit" class="btn btn-sucess" value="Entrar" />
                     </div>
-                </div>                                            }
+                </div>
+            }
         </section>
     </div>
 </div>
 ```
+
+Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.config`, ncluindo nele as seções Authorization e Authentication.
+
+```cs
+
+<configuration>
+...
+  <system.web>
+      <authentication mode="Forms">
+          <forms loginUrl="~/Conta/Login" name=".sismf_web"></forms>
+      </authentication>
+      <authorization >
+          <deny users="?"/>
+      </authorization>
+    <compilation debug="true" targetFramework="4.5.2" />
+    <httpRuntime targetFramework="4.5.2" />
+    ...
+  </system.web>
+
+```
+
+Em seguida, fazemos a ligação através da respectiva ViewModel, e criada a classe, incluimos os nossos atributos.
+Um recurso bacana para melhorar os labels no front, é usar o atributo [Display(Name "Texto")].
+
+```cs
+namespace sismf_web.Models
+{
+    public class LoginViewModel
+    {
+        [Display(Name = "Usuário: ")]
+        public string Usuario { get; set;  }
+
+        [Display(Name = "Senha: ")]
+        public string Senha { get; set; }
+
+        [Display(Name = "Lembrar meus dados")]
+        public bool LembrarMe { get; set; }
+    }
+}
+```
+
+Após, fazemos um bind na View `Login`, e assim ela saberá quem é o sua Model correpondente:
+
+```cs
+@model sismf_web.Models.LoginViewModel
+
+@{ ViewBag.Title = "Login";}
+```
+
+Finalizando, criamos o método HTTP, decorando com `HttpPost` que possui os parâmetros Login e a URL:
+
+```cs
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Login(LoginViewModel login, string returnUrl)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(login);
+            }
+            return View(login);
+        }
+    }
+}
+```
+
+
+
+
+
+
+
 
 
 <!-- 
