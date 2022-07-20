@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container">
+    <div class="row">
+        <h3 class="titulo">Login no SISMF</h3>
+    </div>
+    <div class="row">
+        <section id="loginform">
+            @*Controller "Conta" chama a Action "Login", passa como parâmetro a URL,o método HTTP (POST)*@
+            @*+ Estilização do formulário de envio *@
+            @using (Html.BeginForm(
+                "Login",
+                "Conta",
+                new { ReturnUrl = ViewBag.ReturnUrl },
+                FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Usuario, new { @class = "form-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Usuario, new { class="form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        @Html.CheckBoxFor( m => m.LembrarMe)
+                        @Html.LabelFor( m => m.LembrarMe)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Senha, new { @class = "form-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Senha, new { class= "form-control" })
+                    </div>
+                </div>                                            }
+        </section>
+    </div>
+</div>
+
+

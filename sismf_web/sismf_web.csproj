@@ -176,12 +176,17 @@
     <Content Include="Views\Cadastro\Estado.cshtml" />
     <Content Include="Views\Cadastro\Cidade.cshtml" />
     <Content Include="Views\Cadastro\UsarioPerfil.cshtml" />
+    <Content Include="Views\Grafico\Grafico.cshtml" />
+    <Content Include="Views\Grafico\EntradaSaidaMes.cshtml" />
+    <Content Include="Views\Operacao\EntradaProduto.cshtml" />
+    <Content Include="Views\Operacao\InvetarioEstoque.cshtml" />
+    <Content Include="Views\Operacao\SaidaProduto.cshtml" />
+    <Content Include="Views\Operacao\LancPerdaProduto.cshtml" />
+    <Content Include="Views\Conta\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Grafico\" />
-    <Folder Include="Views\Operacao\" />
     <Folder Include="Views\Relatorio\" />
   </ItemGroup>
   <ItemGroup>

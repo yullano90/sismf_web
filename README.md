@@ -1,6 +1,7 @@
 ### <!-- Sistema de Gestão de Materiais Ferroviários -  --> SISMF
 
-Grupos de Funcionalidades:
+**GRUPOS DE FUNCIONALIDADES:**
+
 1) **Infraestrutura:**
 - Tratamento de Exceção;
 - Gravação de Logs em arquivos;	
@@ -36,7 +37,7 @@ Grupos de Funcionalidades:
 <!-- ### Apresentação da Aplicação -->
 
 
-### Fluxo de Execução Básico:
+### FLUXO DE EXECUÇÃO BÁSICO:
 
 Usuário está ligado a todas as entidades, que acabam por se tornar tabelas do banco de dados e referência semântica para o padrão de projeto MVC:
 
@@ -59,9 +60,11 @@ K --> L(Estado)
 L --> M(País)
 ```
 
-### Funcionalidades da App
+### FUNCIONALIDADES DA APP:
 
-Com as entidades definidas já é possível criar as guias de menu com as listas suspensas (Dropdowns) de funcionalidades, usando a Técnica Top-Down para abstrair os respectivos Controllers e métodos. Vide abaixo trecho de criação das listas de menu:
+**Menu do Sistema:**
+
+Com as entidades definidas já é possível criar as guias de menu com as listas suspensas (Dropdowns) de funcionalidades, aplicando a abordagem Top Down para abstrair os respectivos Controllers e Métodos. Vide abaixo trecho de código das listas de menu em   `sismf_web\Views\Shared\_Layout.cshtml`:
 
 ```cs
             <div class="navbar-collapse collapse">
@@ -125,6 +128,51 @@ Com as entidades definidas já é possível criar as guias de menu com as listas
 
 
 ```
+
+**Autenticação**:
+
+Uma view Login precisa ser criada para coletar o input de credenciais do usuário. Sendo assim, o Controller "Conta" chama a Action Login, passa como parâmetro a URL e o método HTTP e mais algumas estilizações da View. Teremos então dois campos (login e senha) + checkbox + submit, e finalizando a faremos Controller que vai suportar as ações dessa View. Vide abaixo:
+
+```cs
+<div class="container">
+    <div class="row">
+        <h3 class="titulo">Login no SISMF</h3>
+    </div>
+    <div class="row">
+        <section id="loginform">
+            @*Controller "Conta" chama a Action "Login", passa como parâmetro a URL,o método HTTP (POST)*@
+            @*+ Estilização do formulário de envio *@
+            @using (Html.BeginForm(
+                "Login",
+                "Conta",
+                new { ReturnUrl = ViewBag.ReturnUrl },
+                FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Usuario, new { @class = "form-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Usuario, new { class="form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        @Html.CheckBoxFor( m => m.LembrarMe)
+                        @Html.LabelFor( m => m.LembrarMe)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Senha, new { @class = "form-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Senha, new { class= "form-control" })
+                    </div>
+                </div>                                            }
+        </section>
+    </div>
+</div>
+```
+
 
 <!-- 
 
@@ -224,7 +272,16 @@ Todas as páginas por padrão herdam de Shared;
 Template ASP net MVC.
 
 
-Após a definição do Dropdown.
-Criamos uma Controller 
+Após a definição do Dropdown, criamos respectivos Controllers e Views.
+
+Os mecanismos de autenticação são dividos em 4 grandes categorias:
+
+- Senhas que o usuário tem que lembrar;
+- Cartão de banco, Token de acesso, código SMS;
+- Impressão digital, Análise de retina, reconhecimento de voz ou facial;
+- Localização do usuário (Endereço de Adaptador de Rede, GPS);
+
+
+
 
 -->

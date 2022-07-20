@@ -22,7 +22,7 @@ namespace sismf_web.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Sistemas de Informação";
 
             return View();
         }
