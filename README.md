@@ -197,20 +197,21 @@ Uma view Login precisa ser criada para coletar o input de credenciais do usuári
 Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.config`, ncluindo nele as seções Authorization e Authentication.
 
 ```cs
+
 <configuration>
 ...
   <system.web>
       <authentication mode="Forms">
-          <forms loginUrl="~/Conta/Login" name=".controlestoque"></forms>
+          <forms loginUrl="~/Conta/Login" name=".sismf_web"></forms>
       </authentication>
       <authorization >
           <deny users="?"/>
       </authorization>
     <compilation debug="true" targetFramework="4.5.2" />
     <httpRuntime targetFramework="4.5.2" />
+    ...
   </system.web>
-  ...
-</configuration>
+
 ```
 
 Em seguida, fazemos a ligação através da respectiva ViewModel, e criada a classe, incluimos os nossos atributos.
