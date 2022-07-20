@@ -109,4 +109,3 @@ C:\Users\81030093\Desktop\IFMA\sismf_web\sismf_web\obj\Debug\sismf_web.csproj.Co
 C:\Users\81030093\Desktop\IFMA\sismf_web\sismf_web\obj\Debug\sismf_web.csproj.CopyComplete
 C:\Users\81030093\Desktop\IFMA\sismf_web\sismf_web\obj\Debug\sismf_web.dll
 C:\Users\81030093\Desktop\IFMA\sismf_web\sismf_web\obj\Debug\sismf_web.pdb
-C:\Users\81030093\Desktop\IFMA\sismf_web\sismf_web\obj\Debug\sismf_web.csproj.AssemblyReference.cache

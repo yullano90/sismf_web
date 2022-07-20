@@ -8,11 +8,13 @@ namespace sismf_web.Controllers
 {
     public class GraficoController : Controller
     {
-        // GET: Grafico
+        [Authorize]
         public ActionResult Grafico()
         {
             return View();
         }
+
+        [Authorize]
         public ActionResult EntradaSaidaMes()
         {
             return View();
