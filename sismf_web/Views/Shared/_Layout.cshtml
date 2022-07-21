@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title EFC </title>
+    <title>@ViewBag.Title v1.0.0 </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -80,7 +80,7 @@
                 </ul>
 
 
-                @*Guias simples na mesma lâmina (sem dropdown): <li>@Html.ActionLink("Text", "Action", "Controller")</li> *@
+                @*Guias simples sem dropdown *@
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Sobre o SISMF", "About", "Home")</li>
                     <li>@Html.ActionLink("Desenvolvedor", "Contact", "Home")</li>
@@ -93,6 +93,8 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Desenvolvido por Yullano Santos</p>
+            <p>Disciplina: Análise e Projeto de Sistemas</p>
+            <p>Sistemas de Informação | IFMA</p>
         </footer>
     </div>
 
