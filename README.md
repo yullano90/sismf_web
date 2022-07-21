@@ -72,88 +72,80 @@ Com as entidades definidas já é possível criar as guias de menu com as listas
 <!DOCTYPE html>
 <html>
 ...
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @*Guia do dropdown*@
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            @*Propriedades que mostram o dropdown*@
-                            Cadastros
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Grupo de Produtos", "GrupoProduto", "Cadastro")</li>
-                            <li>@Html.ActionLink("Marcas de Produtos", "MarcaProduto", "Cadastro")</li>
-                            <li>@Html.ActionLink("Locais de Armazenamento", "LocalProduto", "Cadastro")</li>
-                            <li>@Html.ActionLink("Unidades de Medida", "UnidadeMedida", "Cadastro")</li>
-                            <li>@Html.ActionLink("Produtos", "Produto", "Cadastro")</li>
-                            <li class="nav-divider"></li>
-                            <li>@Html.ActionLink("Países", "Pais", "Cadastro")</li>
-                            <li>@Html.ActionLink("Estados", "Estado", "Cadastro")</li>
-                            <li>@Html.ActionLink("Cidades", "Cidade", "Cadastro")</li>
-                            <li class="nav-divider"></li>
-                            <li>@Html.ActionLink("Perfis de Usuários", "UsarioPerfil", "Cadastro")</li>
-                            <li>@Html.ActionLink("Usuários", "Usuario", "Cadastro")</li>
-                        </ul>
-                    </li>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        @*Guia do dropdown*@
+        <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                @*Propriedades que mostram o dropdown*@
+                Cadastros
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Grupo de Produtos", "GrupoProduto", "Cadastro")</li>
+                <li>@Html.ActionLink("Marcas de Produtos", "MarcaProduto", "Cadastro")</li>
+                <li>@Html.ActionLink("Locais de Armazenamento", "LocalProduto", "Cadastro")</li>
+                <li>@Html.ActionLink("Unidades de Medida", "UnidadeMedida", "Cadastro")</li>
+                <li>@Html.ActionLink("Produtos", "Produto", "Cadastro")</li>
+                <li class="nav-divider"></li>
+                <li>@Html.ActionLink("Países", "Pais", "Cadastro")</li>
+                <li>@Html.ActionLink("Estados", "Estado", "Cadastro")</li>
+                <li>@Html.ActionLink("Cidades", "Cidade", "Cadastro")</li>
+                <li class="nav-divider"></li>
+                <li>@Html.ActionLink("Perfis de Usuários", "UsarioPerfil", "Cadastro")</li>
+                <li>@Html.ActionLink("Usuários", "Usuario", "Cadastro")</li>
+            </ul>
+        </li>
 
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Operações
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Entrada de Produtos", "EntradaProduto", "Operacao")</li>
-                            <li>@Html.ActionLink("Saída de Produtos", "SaidaProduto", "Operacao")</li>
-                            <li>@Html.ActionLink("Lançamento de Perdas de Produto", "LancPerdaProduto", "Operacao")</li>
-                            <li>@Html.ActionLink("Inventário de Estoque", "InvetarioEstoque", "Operacao")</li>
-                        </ul>
-                    </li>
+        <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Operações
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Entrada de Produtos", "EntradaProduto", "Operacao")</li>
+                <li>@Html.ActionLink("Saída de Produtos", "SaidaProduto", "Operacao")</li>
+                <li>@Html.ActionLink("Lançamento de Perdas de Produto", "LancPerdaProduto", "Operacao")</li>
+                <li>@Html.ActionLink("Inventário de Estoque", "InvetarioEstoque", "Operacao")</li>
+            </ul>
+        </li>
 
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Relatórios
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Posição do Estoque", "PosicaoEstoque", "Relatorio")</li>
-                            <li>@Html.ActionLink("Ressuprimento", "Ressuprimento", "Relatorio")</li>
-                        </ul>
-                    </li>
+        <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Relatórios
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Posição do Estoque", "PosicaoEstoque", "Relatorio")</li>
+                <li>@Html.ActionLink("Ressuprimento", "Ressuprimento", "Relatorio")</li>
+            </ul>
+        </li>
 
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Gráficos
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Perdas por mês", "PerdaMes", "Grafico")</li>
-                            <li>@Html.ActionLink("Entradas vs Saídas por mês", "EntradaSaidaMes", "Grafico")</li>
-                        </ul>
-                    </li>
-                </ul>
+        <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Gráficos
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Perdas por mês", "PerdaMes", "Grafico")</li>
+                <li>@Html.ActionLink("Entradas vs Saídas por mês", "EntradaSaidaMes", "Grafico")</li>
+            </ul>
+        </li>
+    </ul>
 
-
-                @*Guias simples na mesma lâmina (sem dropdown): <li>@Html.ActionLink("Text", "Action", "Controller")</li> *@
-                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Sobre o SISMF", "About", "Home")</li>
-                    <li>@Html.ActionLink("Desenvolvedor", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Desenvolvido por Yullano Santos</p>
-        </footer>
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Sobre o SISMF", "About", "Home")</li>
+        <li>@Html.ActionLink("Desenvolvedor", "Contact", "Home")</li>
+    </ul>
+</div>
 ...
 </html>
 
 ```
 
 **Autenticação**:
+
+*Diagrama de Autenticação - To do*
 
 Uma view Login precisa ser criada para coletar o input de credenciais do usuário. Sendo assim, o Controller "Conta" chama a Action Login, passa como parâmetro a URL e o método HTTP e mais algumas estilizações da View. Teremos então dois campos (login e senha) + checkbox + submit, e finalizando a faremos Controller que vai suportar as ações dessa View. Vide abaixo:
 
@@ -244,7 +236,8 @@ Após, fazemos um bind na View `Login`, e assim ela saberá quem é o sua Model 
 
 Finalizando, criamos o método HTTP, decorando com `HttpPost` que possui os parâmetros Login e a URL:
 
-```cs
+```js
+...
         [HttpPost]
         [AllowAnonymous]
         public ActionResult Login(LoginViewModel login, string returnUrl)
@@ -253,10 +246,28 @@ Finalizando, criamos o método HTTP, decorando com `HttpPost` que possui os par�
             {
                 return View(login);
             }
+
+            var achou = (login.Usuario == "yullano90" && login.Senha == "teste");
+            if (achou)
+            {
+                FormsAuthentication.SetAuthCookie(login.Usuario, login.LembrarMe);
+                if (Url.IsLocalUrl(returnUrl))
+                {
+                    return Redirect(returnUrl);
+                }
+                else
+                {
+                    RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Login Inválido.");
+                }
+            }
+
             return View(login);
         }
-    }
-}
+...
 ```
 
 
