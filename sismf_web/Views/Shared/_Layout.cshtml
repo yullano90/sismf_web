@@ -13,20 +13,17 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
-                    @*<span class="icon-bar"></span>
-                        <span class="icon-bar"></span>*@
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                @*Exibir somente a parte que pertence aos logados, usando o RAZOR*@
                 @if (Request.IsAuthenticated)
                 {
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                @*Guia do dropdown*@
-                                @*Propriedades que mostram o dropdown*@
                                 Cadastros
                                 <span class="caret"></span>
                             </a>
@@ -80,22 +77,21 @@
                                 <li>@Html.ActionLink("Entradas vs Saídas por mês", "EntradaSaidaMes", "Grafico")</li>
                             </ul>
                         </li>
+                    </ul>
 
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Sobre o SISMF", "About", "Home")</li>
-                        <li><a href="#">Olá @User.Identity.Name</a></li>
-                        @using (Html.BeginForm("LogOff", "Conta", FormMethod.Post, new { id = "logoffForm" }))
-                        {
+                    using (Html.BeginForm("LogOff", "Conta", FormMethod.Post, new { id = "logoffForm" }))
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>@Html.ActionLink("Sobre o SISMF", "About", "Home")</li>
+                            <li>@Html.ActionLink("Desenvolvedor", "Contact", "Home")</li>
                             <li><a href="javascript:document.getElementById('logoffForm').submit()">Sair</a></li>
-                        }
-                    </ul>
+                        </ul>
+                    }
                 }
                 else
                 {
                     <ul class="nav navbar-nav navbar-right">
                         <li>@Html.ActionLink("Login", "Login", "Conta")</li>
-                        <li>@Html.ActionLink("Desenvolvedor", "Contact", "Home") </li>
                     </ul>
                 }
             </div>
@@ -106,8 +102,7 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Desenvolvido por Yullano Santos</p>
-            <p>Disciplina: Análise e Projeto de Sistemas</p>
-            <p>Sistemas de Informação | IFMA</p>
+            <p>Disciplina: Análise e Projeto de Sistemas • Sistemas de Informação | IFMA</p>
         </footer>
     </div>
 
