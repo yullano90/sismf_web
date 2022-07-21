@@ -1,8 +1,4 @@
 ﻿using sismf_web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -46,6 +42,14 @@ namespace sismf_web.Controllers
                 ModelState.AddModelError("", "Login Inválido."); //Aviso para informações incorretas
             }
             return View(login);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -68,79 +68,102 @@ L --> M(País)
 
 Com as entidades definidas já é possível criar as guias de menu com as listas suspensas (Dropdowns) de funcionalidades, aplicando a abordagem Top Down para abstrair os respectivos Controllers e Métodos. Vide abaixo trecho de código das listas de menu em   `sismf_web\Views\Shared\_Layout.cshtml`:
 
-```cs
-<!DOCTYPE html>
-<html>
+```html
 ...
-<div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-        @*Guia do dropdown*@
-        <li>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                @*Propriedades que mostram o dropdown*@
-                Cadastros
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li>@Html.ActionLink("Grupo de Produtos", "GrupoProduto", "Cadastro")</li>
-                <li>@Html.ActionLink("Marcas de Produtos", "MarcaProduto", "Cadastro")</li>
-                <li>@Html.ActionLink("Locais de Armazenamento", "LocalProduto", "Cadastro")</li>
-                <li>@Html.ActionLink("Unidades de Medida", "UnidadeMedida", "Cadastro")</li>
-                <li>@Html.ActionLink("Produtos", "Produto", "Cadastro")</li>
-                <li class="nav-divider"></li>
-                <li>@Html.ActionLink("Países", "Pais", "Cadastro")</li>
-                <li>@Html.ActionLink("Estados", "Estado", "Cadastro")</li>
-                <li>@Html.ActionLink("Cidades", "Cidade", "Cadastro")</li>
-                <li class="nav-divider"></li>
-                <li>@Html.ActionLink("Perfis de Usuários", "UsarioPerfil", "Cadastro")</li>
-                <li>@Html.ActionLink("Usuários", "Usuario", "Cadastro")</li>
-            </ul>
-        </li>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                @*<span class="icon-bar"></span>
+                    <span class="icon-bar"></span>*@
+            </button>
+            @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            @*Exibir somente a parte que pertence aos logados, usando o RAZOR*@
+            @if (Request.IsAuthenticated)
+            {
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            @*Guia do dropdown*@
+                            @*Propriedades que mostram o dropdown*@
+                            Cadastros
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Grupo de Produtos", "GrupoProduto", "Cadastro")</li>
+                            <li>@Html.ActionLink("Marcas de Produtos", "MarcaProduto", "Cadastro")</li>
+                            <li>@Html.ActionLink("Locais de Armazenamento", "LocalProduto", "Cadastro")</li>
+                            <li>@Html.ActionLink("Unidades de Medida", "UnidadeMedida", "Cadastro")</li>
+                            <li>@Html.ActionLink("Produtos", "Produto", "Cadastro")</li>
+                            <li class="nav-divider"></li>
+                            <li>@Html.ActionLink("Países", "Pais", "Cadastro")</li>
+                            <li>@Html.ActionLink("Estados", "Estado", "Cadastro")</li>
+                            <li>@Html.ActionLink("Cidades", "Cidade", "Cadastro")</li>
+                            <li class="nav-divider"></li>
+                            <li>@Html.ActionLink("Perfis de Usuários", "UsarioPerfil", "Cadastro")</li>
+                            <li>@Html.ActionLink("Usuários", "Usuario", "Cadastro")</li>
+                        </ul>
+                    </li>
 
-        <li>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Operações
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li>@Html.ActionLink("Entrada de Produtos", "EntradaProduto", "Operacao")</li>
-                <li>@Html.ActionLink("Saída de Produtos", "SaidaProduto", "Operacao")</li>
-                <li>@Html.ActionLink("Lançamento de Perdas de Produto", "LancPerdaProduto", "Operacao")</li>
-                <li>@Html.ActionLink("Inventário de Estoque", "InvetarioEstoque", "Operacao")</li>
-            </ul>
-        </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Operações
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Entrada de Produtos", "EntradaProduto", "Operacao")</li>
+                            <li>@Html.ActionLink("Saída de Produtos", "SaidaProduto", "Operacao")</li>
+                            <li>@Html.ActionLink("Lançamento de Perdas de Produto", "LancPerdaProduto", "Operacao")</li>
+                            <li>@Html.ActionLink("Inventário de Estoque", "InvetarioEstoque", "Operacao")</li>
+                        </ul>
+                    </li>
 
-        <li>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Relatórios
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li>@Html.ActionLink("Posição do Estoque", "PosicaoEstoque", "Relatorio")</li>
-                <li>@Html.ActionLink("Ressuprimento", "Ressuprimento", "Relatorio")</li>
-            </ul>
-        </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Relatórios
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li> @Html.ActionLink("Posição do Estoque", "PosicaoEstoque", "Relatorio")</li>
+                            <li> @Html.ActionLink("Ressuprimento", "Ressuprimento", "Relatorio")</li>
+                        </ul>
+                    </li>
 
-        <li>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Gráficos
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li>@Html.ActionLink("Perdas por mês", "PerdaMes", "Grafico")</li>
-                <li>@Html.ActionLink("Entradas vs Saídas por mês", "EntradaSaidaMes", "Grafico")</li>
-            </ul>
-        </li>
-    </ul>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Gráficos
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Perdas por mês", "PerdaMes", "Grafico")</li>
+                            <li>@Html.ActionLink("Entradas vs Saídas por mês", "EntradaSaidaMes", "Grafico")</li>
+                        </ul>
+                    </li>
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Sobre o SISMF", "About", "Home")</li>
-        <li>@Html.ActionLink("Desenvolvedor", "Contact", "Home")</li>
-    </ul>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Sobre o SISMF", "About", "Home")</li>
+                    <li><a href="#">Olá @User.Identity.Name</a></li>
+                    @using (Html.BeginForm("LogOff", "Conta", FormMethod.Post, new { id = "logoffForm" }))
+                    {
+                        <li><a href="javascript:document.getElementById('logoffForm').submit()">Sair</a></li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Login", "Login", "Conta")</li>
+                    <li>@Html.ActionLink("Desenvolvedor", "Contact", "Home") </li>
+                </ul>
+            }
+        </div>
+    </div>
 </div>
 ...
-</html>
-
 ```
 
 **Autenticação**:
@@ -148,14 +171,15 @@ Com as entidades definidas já é possível criar as guias de menu com as listas
 *Diagrama de Autenticação - To do*
 
 A `view Login` é criada para coletar o input de credenciais do usuário. Sendo assim, a `controller Conta` chama a `Action Login`, passa como parâmetro a URL e o método HTTP e mais algumas estilizações da View. Teremos então:
-- Campos de login e senha;
-- Checkbox 'Lembra-me!';
+- Campos de `login` e `senha`;
+- Checkbox `Lembrar-me!`;
 - Button para submit;
 
 ```cs
 ...
 <section id="loginform">
-    @using (Html.BeginForm("Login", "Conta", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Login", "Conta", new { ReturnUrl = ViewBag.ReturnUrl }, 
+        FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -191,7 +215,7 @@ A `view Login` é criada para coletar o input de credenciais do usuário. Sendo 
 ...
 ```
 
-Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.config`, incluindo nele as seções Authorization e Authentication.
+Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.config`, incluindo nele as seções `Authorization` e `Authentication`.
 
 ```cs
 
@@ -212,7 +236,7 @@ Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.conf
 ```
 
 Em seguida, fazemos a ligação através da respectiva ViewModel, e após criarmos a classe, incluimos os nossos atributos.
-**Um recurso muito bacana para melhorar os labels no front, é usar o atributo [Display(Name "Texto")].**
+**Um recurso muito bacana para melhorar os labels no front, é usar o atributo `[Display(Name "Texto")]`.**
 
 ```cs
 ...
@@ -237,7 +261,7 @@ namespace sismf_web.Models
 }
 ```
 
-- Após, fazemos um bind na `View Login`, e assim ela passa a ter correspondência com a `LoginViewModel`:
+Após, fazemos um bind na `View Login`, e assim ela passa a ter correspondência com a `LoginViewModel`:
 
 ```cs
 @model sismf_web.Models.LoginViewModel
@@ -247,41 +271,61 @@ namespace sismf_web.Models
 ...
 ```
 
-- Criamos o método HTTP, decorando com `HttpPost` que possui os parâmetros Login e a URL:
+Criamos `ContaController`, cujos métodos são `Login` e `Logoff`:
 
 ```js
 ...
-
-    [HttpPost]
-    [AllowAnonymous]
-    public ActionResult Login(LoginViewModel login, string returnUrl)
+namespace sismf_web.Controllers
+{
+    public class ContaController : Controller
     {
-        if (!ModelState.IsValid)
+        [AllowAnonymous] //Tornando o Login Púbico
+        public ActionResult Login(string returnUrl)
         {
-            return View(login);
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
         }
 
-        //Simulação do banco de dados com um login simbólico:
-        var achou = (login.Usuario == "yullano90" && login.Senha == "teste");
-        if (achou)
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Login(LoginViewModel login, string returnUrl)
         {
-            //Validação se a URL informada está dentro do domínio:
-            FormsAuthentication.SetAuthCookie(login.Usuario, login.LembrarMe);
-            if (Url.IsLocalUrl(returnUrl)) //Uma vez usuário validado redirecioná-lo pra onde pediu:
+            if (!ModelState.IsValid)
             {
-                return Redirect(returnUrl);
+                return View(login);
+            }
+
+            //Simulação do banco de dados:
+            var achou = (login.Usuario == "yullano90" && login.Senha == "teste");
+            if (achou)
+            {
+                //Validação se a URL informada está dentro do domínio:
+                FormsAuthentication.SetAuthCookie(login.Usuario, login.LembrarMe);
+                if (Url.IsLocalUrl(returnUrl)) //Uma vez usuário validado fazer o redirect:
+                {
+                    return Redirect(returnUrl);
+                }
+                else
+                {
+                    RedirectToAction("Index", "Home"); //Do contrário retornar pra Home:
+                }
             }
             else
             {
-                RedirectToAction("Index", "Home"); //Do contrário retornar pra Home:
+                ModelState.AddModelError("", "Login Inválido."); //Aviso para informações incorretas
             }
+            return View(login);
         }
-        else
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult LogOff()
         {
-            ModelState.AddModelError("", "Login Inválido."); //Aviso para informações incorretas
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
-        return View(login);
     }
+}
 ...
 ```
 

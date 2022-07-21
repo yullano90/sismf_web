@@ -22,7 +22,7 @@ namespace sismf_web.Controllers
             return View();
         }
 
-        [Authorize]
+        [AllowAnonymous]
         public ActionResult Contact()
         {
             ViewBag.Message = "Sistemas de Informação";
