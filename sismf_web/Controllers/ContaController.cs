@@ -26,22 +26,24 @@ namespace sismf_web.Controllers
                 return View(login);
             }
 
+            //Simulação do banco de dados:
             var achou = (login.Usuario == "yullano90" && login.Senha == "teste");
             if (achou)
             {
+                //Validação se a URL informada está dentro do domínio:
                 FormsAuthentication.SetAuthCookie(login.Usuario, login.LembrarMe);
-                if (Url.IsLocalUrl(returnUrl))
+                if (Url.IsLocalUrl(returnUrl)) //Uma vez usuário validado redirecioná-lo pra onde pediu:
                 {
                     return Redirect(returnUrl);
                 }
                 else
                 {
-                    RedirectToAction("Index", "Home");
+                    RedirectToAction("Index", "Home"); //Do contrário retornar pra Home:
                 }
             }
             else
             {
-                ModelState.AddModelError("", "Login Inválido.");
+                ModelState.AddModelError("", "Login Inválido."); //Aviso para informações incorretas
             }
             return View(login);
         }

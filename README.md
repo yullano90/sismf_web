@@ -147,46 +147,48 @@ Com as entidades definidas já é possível criar as guias de menu com as listas
 
 *Diagrama de Autenticação - To do*
 
-Uma view Login precisa ser criada para coletar o input de credenciais do usuário. Sendo assim, o Controller "Conta" chama a Action Login, passa como parâmetro a URL e o método HTTP e mais algumas estilizações da View. Teremos então dois campos (login e senha) + checkbox + submit, e finalizando a faremos Controller que vai suportar as ações dessa View. Vide abaixo:
+- Uma view Login precisa ser criada para coletar o input de credenciais do usuário. Sendo assim, o Controller "Conta" chama a Action Login, passa como parâmetro a URL e o método HTTP e mais algumas estilizações da View. Teremos então dois campos (login e senha) + checkbox + submit, e finalizando a faremos Controller que vai suportar as ações dessa View. Vide abaixo:
 
 ```cs
-<div class="container">
-    <div class="row">
-        <h3 class="titulo">Login no SISMF</h3>
-    </div>
-    <div class="row">
-        <section id="loginform">
-            @using (Html.BeginForm(
-                "Login","Conta", new { ReturnUrl = ViewBag.ReturnUrl }, 
-                FormMethod.Post, new { @class = "form-horizontal", role = "form" }
-                ))
-            {
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Usuario, new { @class = "form-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Usuario, new { @class = "form-control" })
-                    </div>
-                </div>
+...
+<section id="loginform">
+    @using (Html.BeginForm("Login", "Conta", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Usuario, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Usuario, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Usuario, "", new { @class = "text-danger"})
+            </div>
+        </div>
 
-                <div class="form-group">
-                    <div class="col-md-10 col-md-offset-2">
-                        @Html.CheckBoxFor(m => m.LembrarMe)
-                        @Html.LabelFor(m => m.LembrarMe)
-                    </div>
-                </div>
+        <div class="form-group" >
+            @Html.LabelFor(m => m.Senha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Senha, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Senha, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-                <div class="form-group">
-                    <div class="col-md-10 col-md-offset-2">
-                        <input type="submit" class="btn btn-sucess" value="Entrar" />
-                    </div>
-                </div>
-            }
-        </section>
-    </div>
-</div>
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                @Html.CheckBoxFor(m => m.LembrarMe)
+                @Html.LabelFor(m => m.LembrarMe)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                <input type="submit" class="btn btn-sucess" value="Entrar" />
+            </div>
+        </div>
+    }
+</section>
+...
 ```
 
-Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.config`, ncluindo nele as seções Authorization e Authentication.
+- Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.config`, ncluindo nele as seções Authorization e Authentication.
 
 ```cs
 
@@ -206,67 +208,75 @@ Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.conf
 
 ```
 
-Em seguida, fazemos a ligação através da respectiva ViewModel, e criada a classe, incluimos os nossos atributos.
+- Em seguida, fazemos a ligação através da respectiva ViewModel, e criada a classe, incluimos os nossos atributos.
 Um recurso bacana para melhorar os labels no front, é usar o atributo [Display(Name "Texto")].
 
 ```cs
+...
 namespace sismf_web.Models
 {
     public class LoginViewModel
     {
+        [Required(ErrorMessage = "Informe o Usuário:")] //Mensagem para cada campo exigindo dados.
         [Display(Name = "Usuário: ")]
         public string Usuario { get; set;  }
 
+        [Required(ErrorMessage = "Informe a Senha:")] //Mensagem para cada campo exigindo dados.
+        [DataType(DataType.Password)]
         [Display(Name = "Senha: ")]
         public string Senha { get; set; }
 
-        [Display(Name = "Lembrar meus dados")]
+        [Display(Name = "Lembrar-me!")]
         public bool LembrarMe { get; set; }
     }
 }
 ```
 
-Após, fazemos um bind na View `Login`, e assim ela saberá quem é o sua Model correpondente:
+- Após, fazemos um bind na View `Login`, e assim ela saberá quem é o sua Model correpondente:
 
 ```cs
 @model sismf_web.Models.LoginViewModel
-
-@{ ViewBag.Title = "Login";}
+@{ 
+    ViewBag.Title = "Login";
+}
+...
 ```
 
-Finalizando, criamos o método HTTP, decorando com `HttpPost` que possui os parâmetros Login e a URL:
+- Criamos o método HTTP, decorando com `HttpPost` que possui os parâmetros Login e a URL:
 
 ```js
 ...
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult Login(LoginViewModel login, string returnUrl)
+
+    [HttpPost]
+    [AllowAnonymous]
+    public ActionResult Login(LoginViewModel login, string returnUrl)
+    {
+        if (!ModelState.IsValid)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(login);
-            }
-
-            var achou = (login.Usuario == "yullano90" && login.Senha == "teste");
-            if (achou)
-            {
-                FormsAuthentication.SetAuthCookie(login.Usuario, login.LembrarMe);
-                if (Url.IsLocalUrl(returnUrl))
-                {
-                    return Redirect(returnUrl);
-                }
-                else
-                {
-                    RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Login Inválido.");
-                }
-            }
-
             return View(login);
         }
+
+        //Simulação do banco de dados:
+        var achou = (login.Usuario == "yullano90" && login.Senha == "teste");
+        if (achou)
+        {
+            //Validação se a URL informada está dentro do domínio:
+            FormsAuthentication.SetAuthCookie(login.Usuario, login.LembrarMe);
+            if (Url.IsLocalUrl(returnUrl)) //Uma vez usuário validado redirecioná-lo pra onde pediu:
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                RedirectToAction("Index", "Home"); //Do contrário retornar pra Home:
+            }
+        }
+        else
+        {
+            ModelState.AddModelError("", "Login Inválido."); //Aviso para informações incorretas
+        }
+        return View(login);
+    }
 ...
 ```
 
