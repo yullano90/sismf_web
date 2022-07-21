@@ -147,7 +147,10 @@ Com as entidades definidas já é possível criar as guias de menu com as listas
 
 *Diagrama de Autenticação - To do*
 
-- Uma view Login precisa ser criada para coletar o input de credenciais do usuário. Sendo assim, o Controller "Conta" chama a Action Login, passa como parâmetro a URL e o método HTTP e mais algumas estilizações da View. Teremos então dois campos (login e senha) + checkbox + submit, e finalizando a faremos Controller que vai suportar as ações dessa View. Vide abaixo:
+A `view Login` é criada para coletar o input de credenciais do usuário. Sendo assim, a `controller Conta` chama a `Action Login`, passa como parâmetro a URL e o método HTTP e mais algumas estilizações da View. Teremos então:
+- Campos de login e senha;
+- Checkbox 'Lembra-me!';
+- Button para submit;
 
 ```cs
 ...
@@ -188,7 +191,7 @@ Com as entidades definidas já é possível criar as guias de menu com as listas
 ...
 ```
 
-- Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.config`, ncluindo nele as seções Authorization e Authentication.
+Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.config`, incluindo nele as seções Authorization e Authentication.
 
 ```cs
 
@@ -208,8 +211,8 @@ Com as entidades definidas já é possível criar as guias de menu com as listas
 
 ```
 
-- Em seguida, fazemos a ligação através da respectiva ViewModel, e criada a classe, incluimos os nossos atributos.
-Um recurso bacana para melhorar os labels no front, é usar o atributo [Display(Name "Texto")].
+Em seguida, fazemos a ligação através da respectiva ViewModel, e após criarmos a classe, incluimos os nossos atributos.
+**Um recurso muito bacana para melhorar os labels no front, é usar o atributo [Display(Name "Texto")].**
 
 ```cs
 ...
@@ -217,11 +220,13 @@ namespace sismf_web.Models
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "Informe o Usuário:")] //Mensagem para cada campo exigindo dados.
+        [Required(ErrorMessage = "Informe o Usuário:")]
+        //Mensagem para cada campo exigindo dados.
         [Display(Name = "Usuário: ")]
         public string Usuario { get; set;  }
 
-        [Required(ErrorMessage = "Informe a Senha:")] //Mensagem para cada campo exigindo dados.
+        [Required(ErrorMessage = "Informe a Senha:")]
+        //Mensagem para cada campo exigindo dados.
         [DataType(DataType.Password)]
         [Display(Name = "Senha: ")]
         public string Senha { get; set; }
@@ -232,7 +237,7 @@ namespace sismf_web.Models
 }
 ```
 
-- Após, fazemos um bind na View `Login`, e assim ela saberá quem é o sua Model correpondente:
+- Após, fazemos um bind na `View Login`, e assim ela passa a ter correspondência com a `LoginViewModel`:
 
 ```cs
 @model sismf_web.Models.LoginViewModel
@@ -256,7 +261,7 @@ namespace sismf_web.Models
             return View(login);
         }
 
-        //Simulação do banco de dados:
+        //Simulação do banco de dados com um login simbólico:
         var achou = (login.Usuario == "yullano90" && login.Senha == "teste");
         if (achou)
         {
