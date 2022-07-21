@@ -1,7 +1,7 @@
 Pré-projeto para a disciplina de Análise e Projeto de Sistemas.
+Melhorando também habilidades para suporte à Sistemas Legados.
 
 ### <!-- Sistema de Gerenciamento de Materiais Ferroviários -  --> SISMF
-Melhorando também habilidades para suporte a Sistemas Legados.
 
 **GRUPOS DE FUNCIONALIDADES:**
 
