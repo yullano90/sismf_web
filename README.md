@@ -329,10 +329,10 @@ watch?v=y2bM2leOcL8&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=35
 watch?v=KJ2SOxbbUbg&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=36
  
 
-### Modelo de Dados
+### MODELO DE DADOS
 
 
-### Tecnologias Utilizadas
+### TECNOLOGIAS UTILIZADAS
 
 - .NET Framework 4.5.2
 - C#
@@ -348,22 +348,22 @@ watch?v=KJ2SOxbbUbg&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=36
 - Crystal Reports
 - Google Graphs
 
-### Estrutura Básica da App
+### ESTRUTURA BÁSICA DA APP
 
 
-### Controle de Usuários
+### CONTROLE DE USUÁRIOS
 
 
-### Cadastros
+### CADASTROS
 
 
-### Relatórios
+### RELATÓRIOS
 
 
-### Gráficos
+### GRÁFICOS
 
 
-### Aplicativo Móvel
+### APLICATIVO MÓVEL
 
 <!--
 
