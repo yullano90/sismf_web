@@ -1,6 +1,6 @@
-`Sistemas de Informação | Instituto Federal do Maranhão @IFMA`
-`Pré-projeto para a disciplina de Análise e Projeto de Sistemas.` <br/>
-`Melhorando também habilidades para suporte para Sistemas Legados.`
+Sistemas de Informação | Instituto Federal do Maranhão @IFMA <br/>
+Pré-projeto para a disciplina de Análise e Projeto de Sistemas. <br/>
+Melhorando também habilidades para suporte para Sistemas Legados.
 
 ### <!-- Sistema de Gerenciamento de Materiais Ferroviários -  --> SISMF
 
@@ -222,7 +222,7 @@ Em seguida configura-se o ASP NET para trabalhar com forms indo até o `web.conf
 ```
 
 Em seguida, fazemos a ligação através da respectiva ViewModel, e após criarmos a classe, incluimos os nossos atributos.
-**Um recurso muito bacana para melhorar os labels no front, é usar o atributo `[Display(Name "Texto")]`.**
+Um recurso muito bacana para melhorar os labels no front, é usar o atributo `[Display(Name "Texto")]`.
 
 ```cs
 ...
