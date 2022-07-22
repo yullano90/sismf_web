@@ -1,5 +1,6 @@
+`Sistemas de Informação | Instituto Federal do Maranhão @IFMA`
 `Pré-projeto para a disciplina de Análise e Projeto de Sistemas.` <br/>
-`Melhorando também habilidades para suporte á Sistemas Legados.`
+`Melhorando também habilidades para suporte para Sistemas Legados.`
 
 ### <!-- Sistema de Gerenciamento de Materiais Ferroviários -  --> SISMF
 
@@ -155,7 +156,7 @@ Com as entidades definidas já é possível criar as guias de menu com as listas
 
 *Diagrama de Autenticação - To do*
 
-A `view Login` é criada para coletar o input de credenciais do usuário. Sendo assim, a `controller Conta` chama a `Action Login`, passa como parâmetro a URL e o método HTTP e mais algumas estilizações da View. Teremos então:
+A `view Login` é criada para coletar o input de credenciais do usuário. Sendo assim, a `controller Conta` chama a `Action Login`, passa como parâmetro a URL, o método HTTP e mais algumas estilizações da View. Teremos então:
 - Campos de `login` e `senha`;
 - Checkbox `Lembrar-me!`;
 - Button para submit;
@@ -315,18 +316,17 @@ namespace sismf_web.Controllers
 ```
 
 **Autenticação via Banco de Dados**:
-
 Criamos uma classe que validará o usuário e terá acesso a dados.
-watch?v=zRHdJy3w-ZQ&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=6
-
+*Referência ao folder DAL - To Do*
+zRHdJy3w-ZQ&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=6
 
 
 **Alteração de Senha**:
-watch?v=y2bM2leOcL8&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=35
+y2bM2leOcL8&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=35
 
 
 **Redefinição de Senha**:
-watch?v=KJ2SOxbbUbg&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=36
+KJ2SOxbbUbg&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=36
  
 
 ### MODELO DE DADOS
@@ -367,18 +367,9 @@ watch?v=KJ2SOxbbUbg&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=36
 
 <!--
 
-### SmartyPants
 
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
+### Anotações e Conceitos Básicos do Projeto:
 
-
-Tools:
-
-### Conceitos Básicos
 Controle de fluxo de entrada e saída de produtos em uma empresa.
 - Conjunto de produtos armazenados em um local.
 - Dinheiro armazenado na empresa;
@@ -394,10 +385,6 @@ Tipos de Estoque:
 - **Produtos não acabados** (peças, motores, chips, componentes eletrônicos, etc).
 - **Produtos finalizados**  (carros, notebooks, etc).
 - **Consumíveis** - (combustíveis, materiais de escritório, etc). 
-
-
-
-### Drafts:
 
 Tudo começa na compra, todo produto é comprado por um fornecedor.
 E aí há uma entrada, uma saída e a venda pelo PDV.
