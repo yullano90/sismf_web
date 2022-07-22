@@ -1,7 +1,8 @@
-Pré-projeto para a disciplina de Análise e Projeto de Sistemas.
+`Pré-projeto para a disciplina de Análise e Projeto de Sistemas.`
+`Melhorando também habilidades para suporte á Sistemas Legados.`
 
 ### <!-- Sistema de Gerenciamento de Materiais Ferroviários -  --> SISMF
-Melhorando também habilidades para suporte a Sistemas Legados.
+
 
 **GRUPOS DE FUNCIONALIDADES:**
 
@@ -314,15 +315,20 @@ namespace sismf_web.Controllers
 ...
 ```
 
+**Autenticação via Banco de Dados**:
+
+Criamos uma classe que validará o usuário e terá acesso a dados.
+watch?v=zRHdJy3w-ZQ&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=6
 
 
 
+**Alteração de Senha**:
+watch?v=y2bM2leOcL8&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=35
 
 
-
-
-
-<!-- 
+**Redefinição de Senha**:
+watch?v=KJ2SOxbbUbg&list=PLBIZ3dmiYIYnMaxogi0YTT7n9aZAoM7TY&index=36
+ 
 
 ### Modelo de Dados
 
@@ -360,6 +366,8 @@ namespace sismf_web.Controllers
 
 ### Aplicativo Móvel
 
+<!--
+
 ### SmartyPants
 
 |                |ASCII                          |HTML                         |
@@ -367,12 +375,9 @@ namespace sismf_web.Controllers
 |Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
 |Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
 |Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
- -->
 
 
-<!-- Tools:
-#mermaid
-#stackedit
+Tools:
 
 ### Conceitos Básicos
 Controle de fluxo de entrada e saída de produtos em uma empresa.
@@ -428,8 +433,6 @@ Os mecanismos de autenticação são dividos em 4 grandes categorias:
 - Cartão de banco, Token de acesso, código SMS;
 - Impressão digital, Análise de retina, reconhecimento de voz ou facial;
 - Localização do usuário (Endereço de Adaptador de Rede, GPS);
-
-
 
 
 -->
