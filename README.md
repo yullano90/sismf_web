@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 `Pré-projeto para a disciplina de Análise e Projeto de Sistemas.`
 `Melhorando também habilidades para suporte á Sistemas Legados.`
 
 ### <!-- Sistema de Gerenciamento de Materiais Ferroviários -  --> SISMF
-
-=======
-Pré-projeto para a disciplina de Análise e Projeto de Sistemas.<br/>
-Melhorando também habilidades para suporte à Sistemas Legados.
-
-### <!-- Sistema de Gerenciamento de Materiais Ferroviários -  --> SISMF
->>>>>>> ecc5f87a3529e4a6ed35696696ea56141013a541
 
 **GRUPOS DE FUNCIONALIDADES:**
 
@@ -441,11 +433,4 @@ Os mecanismos de autenticação são dividos em 4 grandes categorias:
 - Impressão digital, Análise de retina, reconhecimento de voz ou facial;
 - Localização do usuário (Endereço de Adaptador de Rede, GPS);
 
-
-<<<<<<< HEAD
 -->
-=======
-
-
--->
->>>>>>> ecc5f87a3529e4a6ed35696696ea56141013a541
